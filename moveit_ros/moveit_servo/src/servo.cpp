@@ -86,7 +86,8 @@ bool Servo::readParameters()
 {
   std::size_t error = 0;
 
-  ros::NodeHandle nh("~");  // Load all parameters w.r.t. to node's private namespace
+  // ros::NodeHandle nh(nh_,"~");  // Load all parameters w.r.t. to node's private namespace
+  ros::NodeHandle nh = nh_;
 
   error += !rosparam_shortcuts::get(LOGNAME, nh, "publish_period", parameters_.publish_period);
   error += !rosparam_shortcuts::get(LOGNAME, nh, "collision_check_rate", parameters_.collision_check_rate);
